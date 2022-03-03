@@ -165,7 +165,9 @@ static uint8_t txBuf[ TWI_TX_BUFFER_SIZE ];
 static volatile uint8_t txHead;
 static volatile uint8_t txTail;
 static volatile uint8_t txCount;
-
+void    (*_onTwiDataRequest)(void);
+void    (*usi_onRequestPtr)(void);
+void    (*usi_onReceiverPtr)(uint8_t);
 static void flushTwiBuffers(void) {
     rxTail  = 0;
     rxHead  = 0;
